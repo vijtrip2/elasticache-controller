@@ -4,7 +4,7 @@
 
 image:
   repository: public.ecr.aws/aws-controllers-k8s/controller
-  tag: elasticache-v0.0.4
+  tag: elasticache-v0.0.3
   pullPolicy: IfNotPresent
   pullSecrets: []
 
@@ -20,7 +20,7 @@ metrics:
   service:
     # Set to true to automatically create a Kubernetes Service resource for the
     # Prometheus metrics server endpoint in controller
-    create: false
+    create: true
     # Which Type to use for the Kubernetes Service?
     # See: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
     type: "ClusterIP"
@@ -35,8 +35,8 @@ resources:
 
 aws:
   # If specified, use the AWS region for AWS API calls
-  region: ""
-  account_id: ""
+  region: "us-west-2"
+  account_id: "309117047740"
 
 # log level for the controller
 log:
@@ -57,5 +57,5 @@ serviceAccount:
   create: true
   # The name of the service account to use.
   name: ack-elasticache-controller
-  annotations: {}
-    # eks.amazonaws.com/role-arn: arn:aws:iam::AWS_ACCOUNT_ID:role/IAM_ROLE_NAME
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::309117047740:role/ack-apigatewayv2-controller

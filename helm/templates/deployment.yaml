@@ -47,8 +47,6 @@ spec:
         - "$(ACK_LOG_LEVEL)"
         - --resource-tags
         - "$(ACK_RESOURCE_TAGS)"
-        - --watch-namespace
-        - "$(ACK_WATCH_NAMESPACE)"
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         name: controller
         ports:
